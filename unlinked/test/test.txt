@@ -1,0 +1,1 @@
+link1="https://stackoverflow.com/questions/15765366/how-does-git-track-file-changes-internally"
