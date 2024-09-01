@@ -1,11 +1,14 @@
 class transformer:
     def __init__(self):
-        
-    def Embedd(self):
+        pass     
     #Call fetchlink from crawler which will return list of list of text and embedded them
+    def Embedd(self):
+        pass
 
-    def Attention(self):
     #Make sense out of sentence by keeping them in attention layer where they make sense to each other useful for some word with double meaning
+    def Attention(self):
+        pass
 
-    def Compare(self):
     #Compare the cosine of two textual from different site and calculate the average and probability of them being related now return probability and correspoding link
+    def Compare(self):
+        pass
