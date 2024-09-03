@@ -14,7 +14,13 @@ class Crawler:
     def parsedom(self):
         html = requests.get(self.startlink)
         soup = BeautifulSoup(html.content, "html.parser")
-        print(soup)
+        postcontainers=soup.find_all('div',class_="post-layout")
+        for postcontainer in postcontainers:
+            links = postcontainer.find_all('a',rel=lambda x: x in ['nofollow','noreferrer'])
+            for link in links:
+                href=link.get('href')
+                if href.startswith('http') or href.startswith('http'): 
+                    print(postcontainer.get_text(),link['href'])
 
     #Extract the text and link out of the div or paragraph in which anchor tag is in and save it as list in out crawstack
     def extracttext(self):

@@ -3,6 +3,6 @@ import transformer.transformer
 
 
 if __name__=="__main__":
-    test = Crawler("https://example.com/")
-    test.printy()
+    test = Crawler("https://stackoverflow.com/questions/15765366/how-does-git-track-file-changes-internally")
+    #test.printy()
     test.parsedom()
