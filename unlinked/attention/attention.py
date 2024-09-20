@@ -14,3 +14,6 @@ class Attention:
             similarity = maintext.similarity(linktext)
             self.result.append((self.data[i][0],similarity))
         return self.result
+
+if __name__ == "__main__":
+    print("Attention")    

@@ -2,8 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 
 class Crawler:
-    def __init__(self,startlink:str):
+    def __init__(self,startlink:str,div:str):
         self.startlink=startlink
+        self.div = div
         self.crawlstack=[]
         self.title=""
         self.contexttext=[]
@@ -18,7 +19,7 @@ class Crawler:
         html.encoding = html.apparent_encoding
         soup = BeautifulSoup(html.content, "html.parser")
         self.title=soup.title.string
-        postcontainers=soup.find_all('div',class_="post-layout")
+        postcontainers=soup.find_all('div',class_=self.div)
         for postcontainer in postcontainers:
             links = postcontainer.find_all('a',rel=lambda x: x in ['nofollow','noreferrer'])
             for link in links:
@@ -34,9 +35,9 @@ class Crawler:
             html = requests.get(link)
             html.encoding = html.apparent_encoding
             soup = BeautifulSoup(html.content, "html.parser")
-            text = soup.title.string if soup.title and soup.title.string else "404 Notfound"
+            text = soup.title.string if soup.title and soup.title.string else "Not found 404"
             self.contexttext.append((link,text.lower()))
         return self.contexttext
 
 if __name__ == "__main__":
-    print("This is Crawler")    
+    print("Crawler")    
